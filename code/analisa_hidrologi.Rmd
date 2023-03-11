@@ -3,6 +3,9 @@ title: "Analisa Hidrologi"
 output: 
   html_document:
     number_sections: true
+    theme: cerulean
+    toc: true
+    toc_float: true
 author: "**Ana Nurganah**; **Irpan Chumaedi**"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 params:
@@ -14,7 +17,7 @@ params:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = F)
-knitr::opts_chunk$set(echo = params$printcode)
+#knitr::opts_chunk$set(echo = params$printcode)
 ```
 
 # Scope of Hydrological Analysis
@@ -76,6 +79,19 @@ Based on Appendix II of PERMEN PUPR NUMBER 04/PRT/M/2015 concerning Criteria and
 ![Siak Watershed](images/watershed_permenpupr-01.jpg)
 
 </center>
+
+From the map above it can be seen that the Siak River Region consists of 2 watersheds namely:
+
+1.	DAS Siak Kecil
+2.	DAS Siak
+
+Based on hydrological analysis, the Siak watershed has 28 sub-watersheds that flow within the Siak watershed with watershed parameters shown in Table 3.1 below.:
+
+```{r}
+library(readxl)
+das_siak <- read_excel("D:/_R_Projects/siak_banjir/raw_data/das_siak.xlsx", sheet = "DAS_Siak_luas", col_types = c("numeric", "text", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric","numeric", "numeric", "numeric"))
+
+```
 
 
 # Hydrological Analysis
